@@ -11,8 +11,8 @@ const API_RESULTS = {
   STATISTICS: 'newslist',
   RUMOR: 'newslist',
   TREND: 'results',
-}
-console.log(API_RESULTS);
+};
+
 export default {
   namespaced: true,
   state: {

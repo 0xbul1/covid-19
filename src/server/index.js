@@ -3,7 +3,6 @@ import { CustomError, ServerError } from '@/utils/error';
 const SUCCESS_CODE = 200;
 
 export function dataHandler(data, param) {
-  console.log(data);
   if (data) {
     if (data.status !== SUCCESS_CODE) {
       return Promise.reject(new CustomError(data.data.msg));
