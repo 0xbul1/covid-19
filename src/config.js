@@ -1,0 +1,1 @@
+export const HTTP_SERVER_ADDRESS = process.env.VUE_APP_HTTP_SERVER_ADDRESS_COVID_1;
