@@ -6,15 +6,22 @@
 
 <script>
 // @ is an alias to /src
-import { HTTP_SERVER_ADDRESS } from '@/config';
-console.log(process.env);
+import { HTTP_SERVER_ADDRESS_1 } from '@/config';
+import { mapActions } from 'vuex';
+
 export default {
   name: 'Home',
   data() {
     return {
-      HTTP_SERVER_ADDRESS: HTTP_SERVER_ADDRESS,
+      HTTP_SERVER_ADDRESS_1,
     };
   },
-  components: {},
+  computed: {},
+  created() {
+    this.fetchVirusRTData();
+  },
+  methods: {
+    ...mapActions('virus', ['fetchVirusRTData']),
+  },
 };
 </script>
