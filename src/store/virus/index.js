@@ -6,7 +6,13 @@ const API_TYPES = {
   STATISTICS: '/ncovcity',
   RUMOR: '/rumour',
 };
-
+const API_RESULTS = {
+  REAL_TIME: 'newslist',
+  STATISTICS: 'newslist',
+  RUMOR: 'newslist',
+  TREND: 'results',
+}
+console.log(API_RESULTS);
 export default {
   namespaced: true,
   state: {
@@ -25,38 +31,41 @@ export default {
     saveRMData(state, RMData) {
       state.RMData = RMData;
     },
+    saveTRData(state, TRData) {
+      state.TRData = TRData;
+    },
   },
   actions: {
-    fetchRTData({ state }) {
+    fetchRTData({ state, commit }) {
       if (state.RTData) return;
       return http({
         url: `${HTTP_SERVER_ADDRESS_1}${API_TYPES.REAL_TIME}/index?key=${HTTP_SERVER_ADDRESS_APIKEY}`
       }).then( res => {
-        console.log(dataHandler(res, 'newslist'));
+        commit('saveRTData', dataHandler(res, `${API_RESULTS.REAL_TIME}`));
       })
     },
-    fetchSTData({ state }) {
+    fetchSTData({ state, commit }) {
       if (state.STData) return;
       return http({
         url: `${HTTP_SERVER_ADDRESS_1}${API_TYPES.STATISTICS}/index?key=${HTTP_SERVER_ADDRESS_APIKEY}`
       }).then( res => {
-        console.log(dataHandler(res));
+        commit('saveSTData', dataHandler(res, `${API_RESULTS.STATISTICS}`));
       })
     },
-    fetchRMData({ state }) {
+    fetchRMData({ state, commit }) {
       if (state.RMData) return;
       return http({
         url: `${HTTP_SERVER_ADDRESS_1}${API_TYPES.RUMOR}/index?key=${HTTP_SERVER_ADDRESS_APIKEY}`
       }).then( res => {
-        console.log(dataHandler(res));
+        commit('saveRMData', dataHandler(res, `${API_RESULTS.RUMOR}`));
       })
     },
-    fetchTRData({ state }) {
-      if (state.RMData) return;
+    fetchTRData({ state, commit }) {
+      if (state.TRData) return;
       return http({
         url: `${HTTP_SERVER_ADDRESS_2}`
       }).then( res => {
-        console.log(dataHandler(res));
+        commit('saveTRData', dataHandler(res, `${API_RESULTS.TREND}`));
       })
     }
   },

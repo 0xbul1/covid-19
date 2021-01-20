@@ -1,7 +1,5 @@
 <template>
-  <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png" />
-  </div>
+  <div class="home"></div>
 </template>
 
 <script>
@@ -14,7 +12,7 @@ export default {
   },
   computed: {},
   created() {
-    this.fetchTRData();
+    this.fetchRMData();
   },
   methods: {
     ...mapActions('virus', [
