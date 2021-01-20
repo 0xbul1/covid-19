@@ -13,6 +13,8 @@ const API_RESULTS = {
   TREND: 'results',
 };
 
+const META_PATH = '/index?key';
+
 export default {
   namespaced: true,
   state: {
@@ -36,6 +38,24 @@ export default {
     },
   },
   actions: {
+    fetchData({state, commit}, 
+    {
+      stateUrl = 'RTData', 
+      mutation = 'saveRTData', 
+      url = HTTP_SERVER_ADDRESS_1, 
+      type = API_TYPES.REAL_TIME, 
+      result = API_RESULTS.REAL_TIME,
+      key = HTTP_SERVER_ADDRESS_APIKEY, 
+      path = META_PATH,
+    }) {
+      console.log(stateUrl);
+      if (state[stateUrl]) return;
+      return http({
+        url: url + result + path + key
+      }).then(res => {
+        commit(mutation, dataHandler(res, type));
+      })
+    },
     fetchRTData({ state, commit }) {
       if (state.RTData) return;
       return http({

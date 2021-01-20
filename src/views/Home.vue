@@ -12,7 +12,7 @@ export default {
   },
   computed: {},
   created() {
-    this.fetchRMData();
+    this.fetchData({});
   },
   methods: {
     ...mapActions('virus', [
@@ -20,6 +20,7 @@ export default {
       'fetchSTData',
       'fetchRMData',
       'fetchTRData',
+      'fetchData',
     ]),
   },
 };
