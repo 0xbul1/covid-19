@@ -19,11 +19,11 @@ export function dataHandler(data, param) {
 export function http(options) {
   //创建axios的实例
   const defaultOptions = {
-    timeout: 5000,
+    url: '/',
+    method: 'get', 
+    timeout: 3000,
   };
   const instance = axios.create({
-    // baseURL: "http://123.207.32.32:8000/api/w1",
-    // timeout: 5000
     ...defaultOptions,
   });
 

@@ -5,23 +5,24 @@
 </template>
 
 <script>
-// @ is an alias to /src
-import { HTTP_SERVER_ADDRESS_1 } from '@/config';
 import { mapActions } from 'vuex';
 
 export default {
   name: 'Home',
   data() {
-    return {
-      HTTP_SERVER_ADDRESS_1,
-    };
+    return {};
   },
   computed: {},
   created() {
-    this.fetchVirusRTData();
+    this.fetchTRData();
   },
   methods: {
-    ...mapActions('virus', ['fetchVirusRTData']),
+    ...mapActions('virus', [
+      'fetchRTData',
+      'fetchSTData',
+      'fetchRMData',
+      'fetchTRData',
+    ]),
   },
 };
 </script>
