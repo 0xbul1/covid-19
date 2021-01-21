@@ -1,6 +1,9 @@
 import axios from 'axios'
 import { CustomError, ServerError } from '@/utils/error';
 const SUCCESS_CODE = 200;
+const DEFAULT_URL = '/';
+const DEFAULT_METHOD = 'get';
+const DEFAULT_TIMEOUT = 5000;
 
 export function dataHandler(data, param) {
   if (data) {
@@ -18,9 +21,9 @@ export function dataHandler(data, param) {
 export function http(options) {
   //创建axios的实例
   const defaultOptions = {
-    url: '/',
-    method: 'get', 
-    timeout: 3000,
+    url: DEFAULT_URL,
+    method: DEFAULT_METHOD, 
+    timeout: DEFAULT_TIMEOUT,
   };
   const instance = axios.create({
     ...defaultOptions,

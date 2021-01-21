@@ -1,4 +1,4 @@
-import { HTTP_SERVER_ADDRESS_1, HTTP_SERVER_ADDRESS_APIKEY } from '@/config';
+import { HTTP_SERVER_ADDRESS_1, HTTP_SERVER_ADDRESS_2, HTTP_SERVER_ADDRESS_APIKEY } from '@/config';
 import {
   REAL_TIME, THE_STATISTICS, THE_RUMOR, THE_TREND,
   SET_REAL_TIME, SET_THE_STATISTICS, SET_THE_RUMOR, SET_THE_TREND,
@@ -15,17 +15,17 @@ export default {
     [THE_TREND]: undefined, // 趋势-TREND
   },
   mutations: {
-    [SET_REAL_TIME](state, REAL_TIME) {
-      state[REAL_TIME] = REAL_TIME;
+    [SET_REAL_TIME](state, payload) {
+      state[REAL_TIME] = payload;
     },
-    [SET_THE_STATISTICS](state, THE_STATISTICS) {
-      state[THE_STATISTICS] = THE_STATISTICS;
+    [SET_THE_STATISTICS](state, payload) {
+      state[THE_STATISTICS] = payload;
     },
-    [SET_THE_RUMOR](state, THE_RUMOR) {
-      state[THE_RUMOR] = THE_RUMOR;
+    [SET_THE_RUMOR](state, payload) {
+      state[THE_RUMOR] = payload;
     },
-    [SET_THE_TREND](state, THE_TREND) {
-      state[THE_TREND] = THE_TREND;
+    [SET_THE_TREND](state, payload) {
+      state[THE_TREND] = payload;
     },
   },
   actions: {
@@ -66,11 +66,9 @@ export default {
       actionCreator({state, commit},{
         stateUrl: THE_TREND, 
         mutation: SET_THE_TREND,
-        url : HTTP_SERVER_ADDRESS_1, 
+        url : HTTP_SERVER_ADDRESS_2, 
         type : API_TYPES[THE_TREND], 
         result : API_RESULTS[THE_TREND],
-        key : HTTP_SERVER_ADDRESS_APIKEY, 
-        path : META_PATH,
       })
     },
   },

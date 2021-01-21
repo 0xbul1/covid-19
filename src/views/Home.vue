@@ -12,10 +12,10 @@ export default {
   },
   computed: {},
   created() {
-    this.GET_REAL_TIME({});
+    this.GET_THE_TREND();
   },
   methods: {
-    ...mapActions('virus', ['GET_REAL_TIME']),
+    ...mapActions('virus', ['GET_THE_TREND']),
   },
 };
 </script>
