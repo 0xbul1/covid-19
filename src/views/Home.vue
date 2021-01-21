@@ -13,13 +13,6 @@ export default {
   },
   computed: {},
   created() {
-    // axios
-    //   .get(
-    //     'https://raw.githubusercontent.com/huanent/vue-echarts-map-demo/master/map/province/anhui.json',
-    //   )
-    //   .then((res) => {
-    //     console.log(res);
-    //   });
     const province = 'anhui';
     this.GET_PROVINCE_JSON({ province });
   },
