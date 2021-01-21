@@ -4,8 +4,8 @@ import {
   SET_REAL_TIME, SET_THE_STATISTICS, SET_THE_RUMOR, SET_THE_TREND,
   GET_REAL_TIME, GET_THE_STATISTICS, GET_THE_RUMOR, GET_THE_TREND,
   API_RESULTS_COVID, API_TYPES_COVID, META_PATH_COVID
-} from '../constants'
-import { actionCreator } from '../actionCreator'
+} from '../constants';
+import { actionCreatorCovid } from '../actionCreator';
 export default {
   namespaced: true,
   state: {
@@ -30,7 +30,7 @@ export default {
   },
   actions: {
     [GET_REAL_TIME]({ state, commit }) {
-      actionCreator({state, commit},{
+      actionCreatorCovid({state, commit},{
         stateUrl: REAL_TIME, 
         mutation: SET_REAL_TIME,
         url : HTTP_SERVER_ADDRESS_COVID_1, 
@@ -41,7 +41,7 @@ export default {
       })
     },
     [GET_THE_STATISTICS]({ state, commit }) {
-      actionCreator({state, commit},{
+      actionCreatorCovid({state, commit},{
         stateUrl: THE_STATISTICS, 
         mutation: SET_THE_STATISTICS,
         url : HTTP_SERVER_ADDRESS_COVID_1, 
@@ -52,7 +52,7 @@ export default {
       })
     },
     [GET_THE_RUMOR]({ state, commit }) {
-      actionCreator({state, commit},{
+      actionCreatorCovid({state, commit},{
         stateUrl: THE_RUMOR, 
         mutation: SET_THE_RUMOR,
         url : HTTP_SERVER_ADDRESS_COVID_1, 
@@ -63,7 +63,7 @@ export default {
       })
     },
     [GET_THE_TREND]({ state, commit }) {
-      actionCreator({state, commit},{
+      actionCreatorCovid({state, commit},{
         stateUrl: THE_TREND, 
         mutation: SET_THE_TREND,
         url : HTTP_SERVER_ADDRESS_COVID_2, 

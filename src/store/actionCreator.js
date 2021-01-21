@@ -1,14 +1,14 @@
 import { dataHandler, http } from '@/server';
-
-export function actionCreator({state, commit},
+import { DEFAULT_STRING } from './constants'
+export function actionCreatorCovid({state, commit},
   {
     stateUrl, 
     mutation, 
     url, 
     type, 
     result,
-    key = '', 
-    path = '',
+    key = DEFAULT_STRING, 
+    path = DEFAULT_STRING,
   }) {
     if (state[stateUrl]) return;
     return http({

@@ -13,8 +13,9 @@ export default {
   },
   computed: {},
   created() {
-    const province = 'anhui';
-    this.GET_PROVINCE_JSON({ province });
+    const province = 'aomen';
+    this.GET_PROVINCE_JSON(province);
+    // this.GET_PROVINCE_JSON();
   },
   methods: {
     ...mapActions('map', ['GET_PROVINCE_JSON']),

@@ -3,7 +3,7 @@ import {
   CHINA_JSON, PROVINCE_JSON,
   SET_CHINA_JSON, SET_PROVINCE_JSON,
   GET_CHINA_JSON, GET_PROVINCE_JSON,
-  API_RESULTS_MAP, META_PATH_MAP,
+  API_RESULTS_MAP, META_PATH_MAP, DEFAULT_PROVINCE,
 } from '../constants'
 import { actionCreatorMap } from '../actionCreator'
 export default {
@@ -29,7 +29,7 @@ export default {
         result : API_RESULTS_MAP[CHINA_JSON],
       })
     },
-    [GET_PROVINCE_JSON]({ state, commit }, {province}) {
+    [GET_PROVINCE_JSON]({ state, commit }, province = DEFAULT_PROVINCE) {
       actionCreatorMap({state, commit},{
         stateUrl: PROVINCE_JSON, 
         mutation: SET_PROVINCE_JSON,
