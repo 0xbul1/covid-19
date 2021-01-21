@@ -4,6 +4,7 @@
 
 <script>
 import { mapActions } from 'vuex';
+// import axios from 'axios';
 
 export default {
   name: 'Home',
@@ -12,10 +13,18 @@ export default {
   },
   computed: {},
   created() {
-    this.GET_THE_TREND();
+    // axios
+    //   .get(
+    //     'https://raw.githubusercontent.com/huanent/vue-echarts-map-demo/master/map/province/anhui.json',
+    //   )
+    //   .then((res) => {
+    //     console.log(res);
+    //   });
+    const province = 'anhui';
+    this.GET_PROVINCE_JSON({ province });
   },
   methods: {
-    ...mapActions('virus', ['GET_THE_TREND']),
+    ...mapActions('map', ['GET_PROVINCE_JSON']),
   },
 };
 </script>

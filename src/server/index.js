@@ -1,17 +1,17 @@
 import axios from 'axios'
 import { CustomError, ServerError } from '@/utils/error';
-const SUCCESS_CODE = 200;
+const DEFAULT_SUCCESS_CODE = 200;
 const DEFAULT_URL = '/';
 const DEFAULT_METHOD = 'get';
 const DEFAULT_TIMEOUT = 5000;
 
 export function dataHandler(data, param) {
   if (data) {
-    if (data.status !== SUCCESS_CODE) {
+    if (data.status !== DEFAULT_SUCCESS_CODE) {
       return Promise.reject(new CustomError(data.data.msg));
     }
     if (param) {
-      return data.data[param] ||  data.data.msg;
+      return data.data[param] || data.data.msg;
     }
     return data.data || data.data.msg;
   }
@@ -24,6 +24,9 @@ export function http(options) {
     url: DEFAULT_URL,
     method: DEFAULT_METHOD, 
     timeout: DEFAULT_TIMEOUT,
+    headers: {
+      'Content-Type': 'application/json;charset=utf-8'
+    }
   };
   const instance = axios.create({
     ...defaultOptions,
