@@ -1,11 +1,11 @@
-import { HTTP_SERVER_ADDRESS_1, HTTP_SERVER_ADDRESS_2, HTTP_SERVER_ADDRESS_APIKEY } from '@/config';
+import { HTTP_SERVER_ADDRESS_1, HTTP_SERVER_ADDRESS_APIKEY } from '@/config';
 import {
   REAL_TIME, THE_STATISTICS, THE_RUMOR, THE_TREND,
   SET_REAL_TIME, SET_THE_STATISTICS, SET_THE_RUMOR, SET_THE_TREND,
   GET_REAL_TIME, GET_THE_STATISTICS, GET_THE_RUMOR, GET_THE_TREND,
-  actionCreator, API_RESULTS, API_TYPES, META_PATH
+  API_RESULTS, API_TYPES, META_PATH
 } from '../constants'
-
+import { actionCreator } from '../actionCreator'
 export default {
   namespaced: true,
   state: {

@@ -12,16 +12,10 @@ export default {
   },
   computed: {},
   created() {
-    this.fetchData({});
+    this.GET_REAL_TIME({});
   },
   methods: {
-    ...mapActions('virus', [
-      'fetchRTData',
-      'fetchSTData',
-      'fetchRMData',
-      'fetchTRData',
-      'fetchData',
-    ]),
+    ...mapActions('virus', ['GET_REAL_TIME']),
   },
 };
 </script>
