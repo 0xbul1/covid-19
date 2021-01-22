@@ -13,12 +13,12 @@ export default {
   },
   computed: {},
   created() {
-    const province = 'aomen';
-    this.GET_PROVINCE_JSON(province);
-    // this.GET_PROVINCE_JSON();
+    // const province = 'aomen';
+    // this.GET_PROVINCE_JSON(province);
+    this.GET_REAL_TIME();
   },
   methods: {
-    ...mapActions('map', ['GET_PROVINCE_JSON']),
+    ...mapActions('covid', ['GET_REAL_TIME']),
   },
 };
 </script>
