@@ -15,7 +15,7 @@ export default {
   created() {
     // const province = 'aomen';
     // this.GET_PROVINCE_JSON(province);
-    this.GET_REAL_TIME();
+    // this.GET_REAL_TIME();
   },
   methods: {
     ...mapActions('covid', ['GET_REAL_TIME']),
