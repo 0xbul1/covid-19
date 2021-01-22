@@ -1,10 +1,10 @@
-import Vue from 'vue'
-import App from './App.vue'
-import router from './router'
-import store from './store'
+import Vue from 'vue';
+import App from './App.vue';
+import router from './router';
+import store from './store';
 import { globalErrorHandler } from '@/utils/error';
-
-Vue.config.productionTip = false
+import '@/plugins/antdv';
+Vue.config.productionTip = false;
 Vue.config.errorHandler = globalErrorHandler;
 
 new Vue({
