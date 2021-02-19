@@ -1,14 +1,17 @@
 <template>
-  <q-page class="flex flex-center">
-    <img alt="Quasar logo" src="../assets/logo.png">
-  </q-page>
+  <div>
+    <Loading />
+  </div>
 </template>
 
-<style>
-</style>
+<style></style>
 
 <script>
+import Loading from '@/components/Loading';
 export default {
-  name: 'HelloWorld'
-}
+  name: 'HelloWorld',
+  components: {
+    Loading,
+  },
+};
 </script>
