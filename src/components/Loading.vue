@@ -23,7 +23,9 @@ export default {
     async lottieInit() {
       const JsonData = await import(
         `../assets/lottie/${
-          ['covid', 'loading', '1', '2'][Math.floor(Math.random() * 10) % 4]
+          ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10'][
+            Math.floor(Math.random() * 10) % 10
+          ]
         }.json`
       );
       const icon = document.getElementById('loading');
