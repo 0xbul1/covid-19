@@ -1,6 +1,10 @@
 <template>
   <div>
-    <q-layout view="lHh lpr lFf" class="shadow-2 rounded-borders">
+    <q-layout
+      view="lHh lpr lFf"
+      class="shadow-2 rounded-borders"
+      @scroll="scrollHandler"
+    >
       <q-header bordered class="bg-white text-primary" reveal>
         <q-toolbar>
           <q-btn flat round dense icon="menu" class="q-mr-sm" />
@@ -30,11 +34,30 @@
             </q-toolbar>
           </q-page-sticky>
           <q-page-sticky position="bottom-right" :offset="[18, 28]">
-            <q-fab icon="keyboard_arrow_up" direction="up" color="primary">
+            <q-fab
+              icon="keyboard_arrow_up"
+              direction="up"
+              color="primary"
+              glossy
+              :disable="fabDisable"
+            >
               <q-fab-action color="primary" icon="person_add" />
               <q-fab-action color="primary" icon="mail" />
             </q-fab>
+            <!-- <q-btn fab icon="keyboard_arrow_up" color="accent" glossy /> -->
           </q-page-sticky>
+          <q-page-scroller
+            expand
+            position="top"
+            :scroll-offset="300"
+            :offset="[0, 50]"
+          >
+            <div
+              class="col cursor-pointer q-pa-sm bg-accent text-white text-center"
+            >
+              回到顶部
+            </div>
+          </q-page-scroller>
         </q-page>
       </q-page-container>
     </q-layout>
@@ -43,7 +66,7 @@
 
 <script>
 // import HelloWorld from './components/HelloWorld.vue'
-
+import { debounce } from 'quasar';
 export default {
   name: 'LayoutDefault',
 
@@ -54,7 +77,13 @@ export default {
   data() {
     return {
       tab: 'realname',
+      fabDisable: false,
     };
+  },
+  methods: {
+    scrollHandler: debounce(function() {
+      this.fabDisable = true;
+    }, 200),
   },
 };
 </script>
