@@ -1,10 +1,9 @@
 <template>
-  <div>
+  <div class="scroll overflow-hidden" ref="ttt">
     <q-layout
       view="lHh lpr lFf"
       class="shadow-2 rounded-borders"
       @scroll="scrollHandler"
-      ref="ttt"
     >
       <q-header bordered class="bg-white text-primary" reveal>
         <q-toolbar>
@@ -66,7 +65,7 @@
 <script>
 // import HelloWorld from './components/HelloWorld.vue'
 import { scroll } from 'quasar';
-const { getScrollbarWidth } = scroll;
+const { getScrollTarget } = scroll;
 export default {
   name: 'LayoutDefault',
 
@@ -88,7 +87,7 @@ export default {
   },
   mounted() {
     // console.log(getScrollTarget(this.$refs.ttt));
-    console.log(getScrollbarWidth());
+    console.log(getScrollTarget(this.$refs.ttt));
   },
   methods: {
     scrollHandler() {
