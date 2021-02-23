@@ -106,6 +106,6 @@ export default {
   // -webkit-transform: translateZ(0);
   // transform: translateZ(0);
   // text-align: center;
-  // opacity: 1;
+  opacity: 1;
 }
 </style>
