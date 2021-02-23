@@ -1,5 +1,5 @@
 <template>
-  <div class="scroll overflow-hidden" ref="ttt">
+  <div ref="ttt" id="ttt">
     <q-layout
       view="lHh lpr lFf"
       class="shadow-2 rounded-borders"
@@ -64,8 +64,8 @@
 
 <script>
 // import HelloWorld from './components/HelloWorld.vue'
-import { scroll } from 'quasar';
-const { getScrollTarget } = scroll;
+import { scroll, debounce } from 'quasar';
+const { getScrollTarget, getScrollPosition } = scroll;
 export default {
   name: 'LayoutDefault',
 
@@ -77,7 +77,7 @@ export default {
     return {
       tab: 'realname',
       fabDisable: false,
-      isScroll: false,
+      position: 0,
     };
   },
   computed: {
@@ -85,13 +85,19 @@ export default {
       return this.isScroll;
     },
   },
+  created() {},
   mounted() {
+    // https://github.com/wangpin34/vue-scroll
     // console.log(getScrollTarget(this.$refs.ttt));
-    console.log(getScrollTarget(this.$refs.ttt));
+    // console.log(getScrollTarget(this.$refs.ttt));
+    // console.log(getScrollPosition(getScrollTarget(this.$refs.ttt)));
+    console.log(
+      debounce(getScrollPosition(getScrollTarget(this.$refs.ttt), 200)),
+    );
   },
   methods: {
     scrollHandler() {
-      // console.log(getScrollTarget());
+      // console.log(getScrollPosition(getScrollTarget(this.$refs.ttt)));
     },
   },
 };
