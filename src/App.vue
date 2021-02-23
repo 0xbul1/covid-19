@@ -11,7 +11,6 @@
           <q-btn flat round dense icon="whatshot" />
         </q-toolbar>
       </q-header>
-
       <q-page-container>
         <q-page class="q-pa-md" style="padding-top: 66px">
           <p v-for="n in 20" :key="n">
@@ -20,7 +19,7 @@
             consequatur optio voluptates asperiores pariatur eos numquam rerum
             delectus commodi perferendis voluptate?
           </p>
-          <q-page-sticky position="top">
+          <q-page-sticky expand position="top">
             <q-toolbar class="bg-primary text-white">
               <q-tabs v-model="tab">
                 <q-tab name="realname" label="疫情地图" />
@@ -29,6 +28,12 @@
                 <q-tab name="trend" label="疫情趋势" />
               </q-tabs>
             </q-toolbar>
+          </q-page-sticky>
+          <q-page-sticky position="bottom-right" :offset="[18, 28]">
+            <q-fab icon="keyboard_arrow_up" direction="up" color="primary">
+              <q-fab-action color="primary" icon="person_add" />
+              <q-fab-action color="primary" icon="mail" />
+            </q-fab>
           </q-page-sticky>
         </q-page>
       </q-page-container>
