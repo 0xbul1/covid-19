@@ -4,6 +4,7 @@
       view="lHh lpr lFf"
       class="shadow-2 rounded-borders"
       @scroll="scrollHandler"
+      ref="ttt"
     >
       <q-header bordered class="bg-white text-primary" reveal>
         <q-toolbar>
@@ -52,10 +53,8 @@
             :scroll-offset="300"
             :offset="[0, 50]"
           >
-            <div
-              class="col cursor-pointer q-pa-sm bg-accent text-white text-center"
-            >
-              回到顶部
+            <div class="col cursor-pointer bg-primary text-white text-center">
+              <q-icon name="eject" size="2rem" />
             </div>
           </q-page-scroller>
         </q-page>
@@ -66,7 +65,8 @@
 
 <script>
 // import HelloWorld from './components/HelloWorld.vue'
-import { debounce } from 'quasar';
+import { scroll } from 'quasar';
+const { getScrollbarWidth } = scroll;
 export default {
   name: 'LayoutDefault',
 
@@ -78,12 +78,22 @@ export default {
     return {
       tab: 'realname',
       fabDisable: false,
+      isScroll: false,
     };
   },
+  computed: {
+    test() {
+      return this.isScroll;
+    },
+  },
+  mounted() {
+    // console.log(getScrollTarget(this.$refs.ttt));
+    console.log(getScrollbarWidth());
+  },
   methods: {
-    scrollHandler: debounce(function() {
-      this.fabDisable = true;
-    }, 200),
+    scrollHandler() {
+      // console.log(getScrollTarget());
+    },
   },
 };
 </script>
