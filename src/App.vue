@@ -33,13 +33,17 @@
               </q-tabs>
             </q-toolbar>
           </q-page-sticky>
-          <q-page-sticky position="bottom-right" :offset="[18, 28]">
+          <q-page-sticky position="bottom-right" :offset="[18, 30]">
             <q-fab
               icon="keyboard_arrow_up"
               direction="up"
               color="primary"
               glossy
+              push
               :disable="!stopScroll"
+              padding="sm"
+              class="scroll-opacity"
+              :class="stopScroll ? '' : 'opacity-transition'"
             >
               <q-fab-action color="primary" icon="person_add" />
               <q-fab-action color="primary" icon="mail" />
@@ -95,4 +99,12 @@ export default {
   },
 };
 </script>
-<style lang="less"></style>
+<style lang="less">
+.scroll-opacity {
+  &.opacity-transition {
+    opacity: 0.7;
+    transition: opacity 200ms 0ms ease-out;
+  }
+  transition: opacity 200ms 0ms ease-in;
+}
+</style>
