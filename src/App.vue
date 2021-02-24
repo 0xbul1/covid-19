@@ -1,5 +1,5 @@
 <template>
-  <div ref="ttt" id="ttt">
+  <div ref="scrollWrapper" id="main">
     <q-layout
       view="lHh lpr lFf"
       class="shadow-2 rounded-borders"
@@ -39,7 +39,7 @@
               direction="up"
               color="primary"
               glossy
-              :disable="fabDisable"
+              :disable="!stopScroll"
             >
               <q-fab-action color="primary" icon="person_add" />
               <q-fab-action color="primary" icon="mail" />
@@ -63,44 +63,36 @@
 </template>
 
 <script>
-// import HelloWorld from './components/HelloWorld.vue'
 import { scroll, debounce } from 'quasar';
 const { getScrollTarget, getScrollPosition } = scroll;
+
 export default {
   name: 'LayoutDefault',
-
-  // components: {
-  //   HelloWorld
-  // },
-
   data() {
     return {
       tab: 'realname',
-      fabDisable: false,
-      position: 0,
+      timer: null,
+      stopScroll: true,
+      startPosition: null,
+      endPosition: null,
     };
   },
-  computed: {
-    test() {
-      return this.isScroll;
-    },
-  },
-  created() {},
-  mounted() {
-    // https://github.com/wangpin34/vue-scroll
-    // console.log(getScrollTarget(this.$refs.ttt));
-    // console.log(getScrollTarget(this.$refs.ttt));
-    // console.log(getScrollPosition(getScrollTarget(this.$refs.ttt)));
-    console.log(
-      debounce(getScrollPosition(getScrollTarget(this.$refs.ttt), 200)),
-    );
-  },
   methods: {
-    scrollHandler() {
-      // console.log(getScrollPosition(getScrollTarget(this.$refs.ttt)));
+    scrollHandler(e) {
+      clearTimeout(this.timer); // 清除定時器
+      this.timer = setTimeout(this.ScrollEnd, 200);
+      this.startPosition = e.position;
+      this.stopScroll = false;
+    },
+    ScrollEnd() {
+      this.endPosition = getScrollPosition(
+        getScrollTarget(this.$refs.scrollWrapper),
+      ); // 停止后的scrolltop
+      if (this.endPosition === this.startPosition) {
+        debounce((this.stopScroll = true), 200);
+      }
     },
   },
 };
 </script>
-
-<style></style>
+<style lang="less"></style>
