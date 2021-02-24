@@ -16,13 +16,38 @@
         </q-toolbar>
       </q-header>
       <q-page-container>
-        <q-page class="q-pa-md" style="padding-top: 66px">
-          <p v-for="n in 20" :key="n">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit nihil
-            praesentium molestias a adipisci, dolore vitae odit, quidem
-            consequatur optio voluptates asperiores pariatur eos numquam rerum
-            delectus commodi perferendis voluptate?
-          </p>
+        <q-page style="padding-top: 66px">
+          <q-tab-panels
+            v-model="tab"
+            animated
+            transition-prev="jump-left"
+            transition-next="jump-right"
+          >
+            <q-tab-panel name="realname">
+              <div class="text-h4">realname</div>
+              <p v-for="n in 200" :key="n">
+                realname
+              </p>
+            </q-tab-panel>
+            <q-tab-panel name="statustics">
+              <div class="text-h4">statustics</div>
+              <p v-for="n in 20" :key="n">
+                statustics
+              </p>
+            </q-tab-panel>
+            <q-tab-panel name="rumor">
+              <div class="text-h4">rumor</div>
+              <p v-for="n in 20" :key="n">
+                rumor
+              </p>
+            </q-tab-panel>
+            <q-tab-panel name="trend">
+              <div class="text-h4">trend</div>
+              <p v-for="n in 20" :key="n">
+                trend
+              </p>
+            </q-tab-panel>
+          </q-tab-panels>
           <q-page-sticky expand position="top">
             <q-toolbar class="bg-primary text-white">
               <q-tabs v-model="tab">
