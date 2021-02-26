@@ -7,12 +7,20 @@
     >
       <q-header bordered class="bg-white text-primary" reveal>
         <q-toolbar>
-          <q-btn flat round dense icon="menu" class="q-mr-sm" />
-          <q-avatar>
-            <img src="https://cdn.quasar.dev/logo/svg/quasar-logo.svg" />
-          </q-avatar>
-          <q-toolbar-title>新型冠状病毒肺炎疫情</q-toolbar-title>
           <q-btn flat round dense icon="whatshot" />
+          <q-toolbar-title>COVID-19</q-toolbar-title>
+          <q-chip class="text-primary" outline square clickable>
+            <q-avatar size="28px">
+              <img src="@/assets/favicon.png" />
+            </q-avatar>
+            钒钛智能
+          </q-chip>
+          <!-- <q-chip class="text-deep-orange-5" outline square clickable>
+            <q-avatar size="28px">
+              <img src="@/assets/logo.jpg" />
+            </q-avatar>
+            活力钱包
+          </q-chip> -->
         </q-toolbar>
       </q-header>
       <q-page-container>
