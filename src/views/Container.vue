@@ -35,22 +35,13 @@
               <Home />
             </q-tab-panel>
             <q-tab-panel name="statustics">
-              <div class="text-h4">statustics</div>
-              <p v-for="n in 20" :key="n">
-                statustics
-              </p>
+              <Statustics />
             </q-tab-panel>
             <q-tab-panel name="rumor">
-              <div class="text-h4">rumor</div>
-              <p v-for="n in 20" :key="n">
-                rumor
-              </p>
+              <Rumor />
             </q-tab-panel>
             <q-tab-panel name="trend">
-              <div class="text-h4">trend</div>
-              <p v-for="n in 20" :key="n">
-                trend
-              </p>
+              <Trend />
             </q-tab-panel>
           </q-tab-panels>
           <q-page-sticky expand position="top">
@@ -98,6 +89,9 @@
 
 <script>
 import Home from '@/views/Home';
+import Statustics from '@/views/Statustics';
+import Rumor from '@/views/Rumor';
+import Trend from '@/views/Trend';
 import { scroll, debounce } from 'quasar';
 const { getScrollTarget, getScrollPosition } = scroll;
 
@@ -105,6 +99,9 @@ export default {
   name: 'Container',
   components: {
     Home,
+    Statustics,
+    Rumor,
+    Trend,
   },
   data() {
     return {
