@@ -3,7 +3,8 @@
     <p>{{ title }}</p>
     <p>{{ count }}例</p>
     <p>
-      <span class="tip">较昨日</span><span class="add">+{{ addcount }}</span>
+      <span class="tip">较昨日</span
+      ><span class="add">{{ addcount | sign }}</span>
     </p>
   </div>
 </template>
@@ -27,6 +28,14 @@ export default {
     count: {
       type: Number,
       required: true,
+    },
+  },
+  filters: {
+    sign(val) {
+      if (val >= 0) {
+        return `+${val}`;
+      }
+      return `${val}`;
     },
   },
 };

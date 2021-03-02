@@ -15,12 +15,12 @@
             </q-avatar>
             钒钛智能
           </q-chip>
-          <!-- <q-chip class="text-deep-orange-5" outline square clickable>
+          <q-chip class="text-deep-orange-5" outline square clickable>
             <q-avatar size="28px">
               <img src="@/assets/logo.jpg" />
             </q-avatar>
             活力钱包
-          </q-chip> -->
+          </q-chip>
         </q-toolbar>
       </q-header>
       <q-page-container>
