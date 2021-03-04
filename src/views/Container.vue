@@ -54,23 +54,7 @@
               </q-tabs>
             </q-toolbar>
           </q-page-sticky>
-          <q-page-sticky position="bottom-right" :offset="[18, 30]">
-            <q-fab
-              icon="keyboard_arrow_up"
-              direction="up"
-              color="primary"
-              glossy
-              push
-              :disable="!stopScroll"
-              padding="sm"
-              class="scroll-opacity"
-              :class="stopScroll ? '' : 'opacity-transition'"
-            >
-              <q-fab-action color="primary" icon="person_add" />
-              <q-fab-action color="primary" icon="mail" />
-            </q-fab>
-            <!-- <q-btn fab icon="keyboard_arrow_up" color="accent" glossy /> -->
-          </q-page-sticky>
+          <FloatActionButton :stopScroll="stopScroll" />
           <q-page-scroller
             expand
             position="top"
@@ -83,6 +67,11 @@
           </q-page-scroller>
         </q-page>
       </q-page-container>
+      <p v-for="i in 20" :key="i">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla in
+        explicabo nam vel. Esse, sunt doloremque incidunt laudantium maiores
+        nobis ea hic libero dolorem, voluptate saepe at mollitia ipsum ut?
+      </p>
     </q-layout>
   </div>
 </template>
@@ -93,6 +82,7 @@ import Statustics from '@/views/Statustics';
 import Rumor from '@/views/Rumor';
 import Trend from '@/views/Trend';
 import { scroll, debounce } from 'quasar';
+import FloatActionButton from '@/components/FloatActionButton';
 const { getScrollTarget, getScrollPosition } = scroll;
 
 export default {
@@ -102,6 +92,7 @@ export default {
     Statustics,
     Rumor,
     Trend,
+    FloatActionButton,
   },
   data() {
     return {
