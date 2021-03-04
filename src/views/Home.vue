@@ -2,7 +2,7 @@
   <div class="home">
     <div>
       <span class="allCountry">全国</span>
-      <span>截至(北京时间)</span>
+      <span>截至{{ HomeCategoryComDate }}(北京时间)</span>
       <div class="categoryBox">
         <HomeCategory
           :title="'确诊'"
@@ -35,6 +35,27 @@
           :addcount="HomeCategoryCom10"
         />
       </div>
+      <!-- <q-separator /> -->
+      <q-select
+        filled
+        bottom-slots
+        v-model="model"
+        :options="options"
+        label="各省疫情查询"
+        :dense="true"
+        :options-dense="true"
+      >
+        <template v-slot:prepend>
+          <q-icon name="place" @click.stop />
+        </template>
+        <template v-slot:append>
+          <q-icon
+            name="close"
+            @click.stop="model = ''"
+            class="cursor-pointer"
+          />
+        </template>
+      </q-select>
     </div>
   </div>
 </template>
@@ -42,6 +63,7 @@
 <script>
 import { mapActions, mapState } from 'vuex';
 import HomeCategory from '@/components/HomeCategory';
+import { formatFullDateTime } from '@/utils/dateUtils.js';
 
 export default {
   name: 'Home',
@@ -49,12 +71,23 @@ export default {
     HomeCategory,
   },
   data() {
-    return {};
+    return {
+      model: null,
+      options: ['Google', 'Facebook', 'Twitter', 'Apple', 'Oracle'],
+      dense: false,
+      denseOpts: true,
+    };
   },
   computed: {
     ...mapState('covid', ['REAL_TIME']),
     HomeCategoryCom() {
       return this.REAL_TIME?.[0].desc;
+    },
+    HomeCategoryComDate() {
+      if (this.HomeCategoryCom) {
+        return formatFullDateTime(this.HomeCategoryCom.modifyTime);
+      }
+      return '------';
     },
     HomeCategoryCom1() {
       return this.HomeCategoryCom?.confirmedCount | 0;
@@ -91,9 +124,10 @@ export default {
     // const province = 'aomen';
     // this.GET_PROVINCE_JSON(province);
     this.GET_REAL_TIME();
+    this.GET_THE_STATISTICS();
   },
   methods: {
-    ...mapActions('covid', ['GET_REAL_TIME']),
+    ...mapActions('covid', ['GET_REAL_TIME', 'GET_THE_STATISTICS']),
   },
 };
 </script>
